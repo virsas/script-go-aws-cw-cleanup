@@ -1,0 +1,1 @@
+# script-go-aws-cw-cleanup
