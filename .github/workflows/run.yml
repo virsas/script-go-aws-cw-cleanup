@@ -1,0 +1,32 @@
+name: CWL streams cleanup
+
+on:
+  schedule:
+    - cron:  '0 2 */2 * *'
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+
+jobs:
+  protect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.18
+
+      - name: Download dependencies
+        run: go mod download
+
+      - name: Cleanup empty streams
+        run: go run main.go
+        env:
+          AWS_CWL_CLEANUP_SCRIPT_ID: ${{ secrets.AWS_CWL_CLEANUP_SCRIPT_ID }}
+          AWS_CWL_CLEANUP_SCRIPT_KEY: ${{ secrets.AWS_CWL_CLEANUP_SCRIPT_KEY }}
+          AWS_CWL_CLEANUP_SCRIPT_REGION: ${{ secrets.AWS_CWL_CLEANUP_SCRIPT_REGION }}
