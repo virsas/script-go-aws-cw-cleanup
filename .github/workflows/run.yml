@@ -10,7 +10,7 @@ on:
       - '**.md'
 
 jobs:
-  protect:
+  cleanup:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
