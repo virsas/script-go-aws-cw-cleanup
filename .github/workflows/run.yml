@@ -27,6 +27,6 @@ jobs:
       - name: Cleanup empty streams
         run: go run main.go
         env:
-          AWS_CWL_CLEANUP_SCRIPT_ID: ${{ secrets.AWS_CWL_CLEANUP_SCRIPT_ID }}
-          AWS_CWL_CLEANUP_SCRIPT_KEY: ${{ secrets.AWS_CWL_CLEANUP_SCRIPT_KEY }}
-          AWS_CWL_CLEANUP_SCRIPT_REGION: ${{ secrets.AWS_CWL_CLEANUP_SCRIPT_REGION }}
+          AWS_CWL_CLEANUP_SCRIPT_ID: ${{ secrets.AWS_ID }}
+          AWS_CWL_CLEANUP_SCRIPT_KEY: ${{ secrets.AWS_KEY }}
+          AWS_CWL_CLEANUP_SCRIPT_REGION: ${{ secrets.AWS_REGION }}
