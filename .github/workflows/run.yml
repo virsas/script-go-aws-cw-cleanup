@@ -2,12 +2,12 @@ name: CWL streams cleanup
 
 on:
   schedule:
-    - cron:  '0 2 */2 * *'
+    - cron: "0 2 * * 6"
   push:
     branches:
       - main
     paths-ignore:
-      - '**.md'
+      - "**.md"
 
 jobs:
   cleanup:
